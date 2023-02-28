@@ -4,9 +4,9 @@ const initialState = {
   count: 0,
 };
 
-const counter = createSlice({
+export const counterSlice = createSlice({
   name: "counter",
   initialState,
 });
 
-export default counter.reducer;
+export default counterSlice.reducer;

@@ -4,42 +4,15 @@ import React from "react";
 import ExpensesList from "./ExpensesList";
 import tw from "twrnc";
 
-const DUMMY_EXPENSES = [
-  {
-    id: 1,
-    title: "Shopping cart",
-    description: "Buy react native udemy course",
-    amount: 11,
-    date: new Date("2023-02-01"),
-  },
-  {
-    id: 2,
-    title: "Shopping cart",
-    description: "Drink cold water",
-    amount: 50,
-    date: new Date("2023-01-29"),
-  },
-  {
-    id: 3,
-    title: "Shopping cart",
-    description: "Lunch Food",
-    amount: 100,
-    date: new Date("2021-01-01"),
-  },
-  {
-    id: 4,
-    title: "Shopping cart",
-    description: "Breakfast food ",
-    amount: 100,
-    date: new Date("2021-01-01"),
-  },
-];
+import { useSelector } from "react-redux";
 
-export default function ExpensesOutput({ expenses, periodName }) {
+export default function ExpensesOutput({ periodName }) {
+  const { DUMMY_EXPENSES } = useSelector((state) => state.expenses);
   const expensesSum = DUMMY_EXPENSES.reduce(
     (current, expense) => current + expense.amount,
     0
   );
+
   return (
     <View style={tw`p-6 flex-1`}>
       <View
